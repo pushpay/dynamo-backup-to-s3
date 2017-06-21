@@ -83,6 +83,7 @@ var options = {
     awsAccessKey:   /* AWS access key */,
     awsSecretKey:   /* AWS secret key */,
     awsRegion:   /* AWS region */,
+    awsSessionToken: /* AWS session token - used with STS assume role*/
     backupPath:     /* folder to save backups in.  default: 'DynamoDB-backup-YYYY-MM-DD-HH-mm-ss',
     base64Binary:   /* whether or not to base64 encode binary data before saving to JSON */
 };
@@ -275,7 +276,8 @@ var options = {
     stopOnFailure: /* true/false should a single failed batch stop the whole restore job? */,
     awsAccessKey: /* AWS access key */,
     awsSecretKey: /* AWS secret key */,
-    awsRegion: /* AWS region */
+    awsRegion: /* AWS region */,
+    awsSessionToken: /* AWS session token - used with STS assume role*/
 };
 
 var restore = new DynamoBackup.Restore(options);
