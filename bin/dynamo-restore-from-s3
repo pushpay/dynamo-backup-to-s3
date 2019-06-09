@@ -15,6 +15,7 @@ program
     .option('-sk, --sortkey [columnname]', 'Name of Secondary Sort Key. Ignored unless --partitionkey is provided.')
     .option('-rc, --readcapacity <units>', 'Read Units for new table (when finished). Default is 5.')
     .option('-wc, --writecapacity <units>', 'Write Units for new table (when finished). Default is --concurrency.')
+    .option('-ppr, --pay-per-request', 'Pay per request', true)
     .option('-sf, --stop-on-failure', 'Stop process when the same batch fails to restore 3 times. Defaults to false.', true)
     .option('--aws-key <key>', 'AWS access key. Will use AWS_ACCESS_KEY_ID env var if --aws-key not set')
     .option('--aws-secret <secret>', 'AWS secret key. Will use AWS_SECRET_ACCESS_KEY env var if --aws-secret not set')
@@ -40,6 +41,7 @@ var dynamoRestore = new DynamoRestore({
     overwrite: !!program.overwrite,
     concurrency: program.concurrency,
     stopOnFailure: !!program.stopOnFailure,
+    payPerRequest: !!program.payPerRequest,
     // New table properties
     partitionkey: program.partitionkey,
     sortkey: program.sortkey,
